@@ -260,14 +260,14 @@ export const negate = c => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 export const add = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeAdd(a, b)))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeAdd(a, b))
     || (isNumber(b) && [a[0] + b, a[1]])
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a + b[0], b[1]]))
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a + b[0], b[1]])
     || (isNumber(b) && [a + b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -278,14 +278,14 @@ export const add = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 export const sub = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeSub(a, b)))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeSub(a, b))
     || (isNumber(b) && [a[0] - b, a[1]])
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a - b[0], b[1]]))
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a - b[0], b[1]])
     || (isNumber(b) && [a - b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -296,14 +296,14 @@ export const sub = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 export const mul = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeMul(a, b)))
-    || (isNumber(b) && [a[0] * b, a[1]] * b)
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a * b[0], a * b[1]]))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeMul(a, b))
+    || (isNumber(b) && [a[0] * b, a[1] * b])
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a * b[0], a * b[1]])
     || (isNumber(b) && [a * b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -314,14 +314,14 @@ export const mul = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 export const div = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeDiv(a, b)))
-    || (isNumber(b) && [a[0] / b, a[1]] / b)
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a / b[0], a / b[1]]))
-    || (isNumber(b) && [a / b, 0])
-  )
+  (isComplex(a) && (
+    (isComplex(b) && unsafeDiv(a, b))
+    || (isNumber(b) && [a[0] / b, a[1] / b])
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a / b[0], a / b[1]])
+    || (isNumber(b) && [a * b, 0])
+  ))
   || NAN
 );
 
@@ -357,8 +357,7 @@ export const abs = c => (
  */
 export const arg = c => (
   (isComplex(c) && matan2(c[1], c[0]))
-  || (isNumber(c) && matan2(0, c))
-  || NaN
+  || (isNumber(c) ? 0 : NaN)
 );
 
 /**
