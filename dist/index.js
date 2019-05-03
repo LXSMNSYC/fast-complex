@@ -75,6 +75,10 @@ var Complex = (function (exports) {
    */
   const I = Object.freeze([0, 1]);
   /**
+   * The square root of -1
+   */
+  const HALF_I = Object.freeze([0, 0.5]);
+  /**
    * The negative square root of -1
    */
   const NI = Object.freeze([0, -1]);
@@ -102,6 +106,10 @@ var Complex = (function (exports) {
    * @ignore
    */
   const unsafeAbs = c => msqrt(unsafeL2(c));
+  /**
+   * @ignore
+   */
+  const unsafeArg = c => matan2(c[1], c[0]);
   /**
    * @ignore
    */
@@ -135,8 +143,8 @@ var Complex = (function (exports) {
    * @ignore
    */
   const unsafeLn = c => [
-    mlog(msqrt(c[0] * c[0] + c[1] * c[1])),
-    matan2(c[1], c[0]),
+    mlog(unsafeAbs(c)),
+    unsafeArg(c),
   ];
   /**
    * @ignore
@@ -189,7 +197,7 @@ var Complex = (function (exports) {
    * @ignore
    */
   const unsafeAtan = c => unsafeMul(
-    [0, 0.5],
+    HALF_I,
     unsafeLn(
       unsafeDiv(
         [c[0], 1 + c[1]],
@@ -348,8 +356,7 @@ var Complex = (function (exports) {
    */
   const abs = c => (
     (isComplex(c) && unsafeAbs(c))
-    || (isNumber(c) && c)
-    || NaN
+    || (isNumber(c) ? c : NaN)
   );
 
   /**
@@ -359,7 +366,7 @@ var Complex = (function (exports) {
    * Returns NaN if the value is not a valid complex.
    */
   const arg = c => (
-    (isComplex(c) && matan2(c[1], c[0]))
+    (isComplex(c) && unsafeArg(c))
     || (isNumber(c) ? 0 : NaN)
   );
 
@@ -642,6 +649,7 @@ var Complex = (function (exports) {
     || a === b
   );
 
+  exports.HALF_I = HALF_I;
   exports.I = I;
   exports.NAN = NAN;
   exports.NI = NI;
