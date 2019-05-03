@@ -15,6 +15,7 @@ const tests = [
   'cos',
   'cosh',
   'div',
+  'euler',
   'exp',
   'floor',
   'ln',
