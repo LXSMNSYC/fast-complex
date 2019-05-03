@@ -11,8 +11,6 @@ const suite = new Benchmark.Suite();
 
 const i = Math.random();
 
-console.log(new Complex([1, 1]).sqrt());
-
 suite.add('complex.js#sqrt', () => {
   new Complex([i, i]).sqrt();
 });
