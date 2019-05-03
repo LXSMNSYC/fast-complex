@@ -264,14 +264,14 @@ const negate = c => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 const add = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeAdd(a, b)))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeAdd(a, b))
     || (isNumber(b) && [a[0] + b, a[1]])
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a + b[0], b[1]]))
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a + b[0], b[1]])
     || (isNumber(b) && [a + b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -282,14 +282,14 @@ const add = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 const sub = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeSub(a, b)))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeSub(a, b))
     || (isNumber(b) && [a[0] - b, a[1]])
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a - b[0], b[1]]))
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a - b[0], b[1]])
     || (isNumber(b) && [a - b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -300,14 +300,14 @@ const sub = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 const mul = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeMul(a, b)))
-    || (isNumber(b) && [a[0] * b, a[1]] * b)
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a * b[0], a * b[1]]))
+  (isComplex(a) && (
+    (isComplex(b) && unsafeMul(a, b))
+    || (isNumber(b) && [a[0] * b, a[1] * b])
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a * b[0], a * b[1]])
     || (isNumber(b) && [a * b, 0])
-  )
+  ))
   || NAN
 );
 
@@ -318,14 +318,14 @@ const mul = (a, b) => (
  * Returns NaN complex if one of the given values is not a complex.
  */
 const div = (a, b) => (
-  (
-    (isComplex(a) && (isComplex(b) && unsafeDiv(a, b)))
-    || (isNumber(b) && [a[0] / b, a[1]] / b)
-  )
-  || (
-    (isNumber(a) && (isComplex(b) && [a / b[0], a / b[1]]))
-    || (isNumber(b) && [a / b, 0])
-  )
+  (isComplex(a) && (
+    (isComplex(b) && unsafeDiv(a, b))
+    || (isNumber(b) && [a[0] / b, a[1] / b])
+  ))
+  || (isNumber(a) && (
+    (isComplex(b) && [a / b[0], a / b[1]])
+    || (isNumber(b) && [a * b, 0])
+  ))
   || NAN
 );
 
@@ -361,8 +361,7 @@ const abs = c => (
  */
 const arg = c => (
   (isComplex(c) && matan2(c[1], c[0]))
-  || (isNumber(c) && matan2(0, c))
-  || NaN
+  || (isNumber(c) ? 0 : NaN)
 );
 
 /**
@@ -581,7 +580,7 @@ const sinh = c => (
  */
 const cosh = c => (
   (isComplex(c) && unsafeCosh(c))
-  || (isNumber(c) && [msinh(c), 0])
+  || (isNumber(c) && [mcosh(c), 0])
   || NAN
 );
 
@@ -633,6 +632,12 @@ const atanh = c => (
   || NAN
 );
 
+/**
+ * Check if two complex are equal
+ * @param {!complex} a
+ * @param {!complex} b
+ * @returns {boolean}
+ */
 const equals = (a, b) => (
   (isComplex(a) && isComplex(b) && eq(a[0], b[0]) && eq(a[1], b[1]))
   || a === b
