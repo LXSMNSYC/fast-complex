@@ -83,149 +83,153 @@ npm run build
 Benchmark against [complex.js](https://www.npmjs.com/package/complex.js)
 
 ```
-
 abs:
-complex.js#abs x 9,933,531 ops/sec ±2.09% (94 runs sampled)
-fast-complex#abs x 253,642,051 ops/sec ±0.29% (97 runs sampled)
+complex.js#abs x 10,039,416 ops/sec ±1.67% (90 runs sampled)
+fast-complex#abs x 253,710,638 ops/sec ±0.36% (93 runs sampled)
 Fastest is fast-complex#abs
 
 acos:
-complex.js#acos x 2,925,969 ops/sec ±1.29% (90 runs sampled)
-fast-complex#acos x 49,749,701 ops/sec ±2.06% (88 runs sampled)
+complex.js#acos x 2,964,673 ops/sec ±1.64% (95 runs sampled)
+fast-complex#acos x 48,972,731 ops/sec ±0.81% (91 runs sampled)
 Fastest is fast-complex#acos
 
 acosh:
-complex.js#acosh x 3,740,378 ops/sec ±0.77% (92 runs sampled)
-fast-complex#acosh x 47,722,386 ops/sec ±5.30% (84 runs sampled)
+complex.js#acosh x 3,616,264 ops/sec ±0.72% (94 runs sampled)
+fast-complex#acosh x 900,426,250 ops/sec ±0.12% (91 runs sampled)
 Fastest is fast-complex#acosh
 
 add:
-complex.js#add x 4,458,950 ops/sec ±0.34% (97 runs sampled)
-fast-complex#add x 35,650,100 ops/sec ±0.67% (93 runs sampled)
+complex.js#add x 4,144,553 ops/sec ±3.72% (86 runs sampled)
+fast-complex#add x 34,798,287 ops/sec ±0.99% (92 runs sampled)
 Fastest is fast-complex#add
 
 arg:
-complex.js#arg x 9,839,039 ops/sec ±0.83% (92 runs sampled)
-fast-complex#arg x 101,340,095 ops/sec ±1.82% (91 runs sampled)
+complex.js#arg x 10,245,874 ops/sec ±1.10% (95 runs sampled)
+fast-complex#arg x 249,870,711 ops/sec ±0.55% (92 runs sampled)
 Fastest is fast-complex#arg
 
 asin:
-complex.js#asin x 2,938,570 ops/sec ±0.61% (91 runs sampled)
-fast-complex#asin x 6,228,202 ops/sec ±7.72% (73 runs sampled)
+complex.js#asin x 2,879,374 ops/sec ±2.12% (93 runs sampled)
+fast-complex#asin x 10,156,487 ops/sec ±1.72% (71 runs sampled)
 Fastest is fast-complex#asin
 
 asinh:
-complex.js#asinh x 2,884,275 ops/sec ±8.94% (77 runs sampled)
-fast-complex#asinh x 33,226,055 ops/sec ±14.06% (72 runs sampled)
+complex.js#asinh x 3,549,738 ops/sec ±0.60% (95 runs sampled)
+fast-complex#asinh x 859,111,642 ops/sec ±0.10% (96 runs sampled)
 Fastest is fast-complex#asinh
 
 atan:
-complex.js#atan x 4,389,152 ops/sec ±5.22% (81 runs sampled)
-fast-complex#atan x 16,479,614 ops/sec ±4.87% (77 runs sampled)
+complex.js#atan x 4,704,238 ops/sec ±0.57% (96 runs sampled)
+fast-complex#atan x 858,674,145 ops/sec ±0.11% (97 runs sampled)
 Fastest is fast-complex#atan
 
 atanh:
-complex.js#atanh x 7,616,215 ops/sec ±1.68% (91 runs sampled)
-fast-complex#atanh x 903,661,538 ops/sec ±0.10% (96 runs sampled)
+complex.js#atanh x 7,526,830 ops/sec ±0.39% (96 runs sampled)
+fast-complex#atanh x 860,865,020 ops/sec ±0.28% (91 runs sampled)
 Fastest is fast-complex#atanh
 
 ceil:
-complex.js#ceil x 8,732,558 ops/sec ±0.57% (96 runs sampled)
-fast-complex#ceil x 581,520,940 ops/sec ±27.17% (66 runs sampled)
+complex.js#ceil x 8,943,458 ops/sec ±0.70% (90 runs sampled)
+fast-complex#ceil x 887,247,178 ops/sec ±0.11% (94 runs sampled)
 Fastest is fast-complex#ceil
 
 conjugate:
-complex.js#conjugate x 7,946,390 ops/sec ±0.61% (92 runs sampled)
-fast-complex#conjugate x 128,600,156 ops/sec ±2.42% (89 runs sampled)
+complex.js#conjugate x 8,706,364 ops/sec ±0.56% (94 runs sampled)
+fast-complex#conjugate x 890,126,063 ops/sec ±0.05% (97 runs sampled)
 Fastest is fast-complex#conjugate
 
 cos:
-complex.js#cos x 6,520,740 ops/sec ±0.28% (92 runs sampled)
-fast-complex#cos x 902,064,871 ops/sec ±0.57% (96 runs sampled)
+complex.js#cos x 6,182,278 ops/sec ±0.67% (94 runs sampled)
+fast-complex#cos x 887,072,837 ops/sec ±0.14% (97 runs sampled)
 Fastest is fast-complex#cos
 
 cosh:
-complex.js#cosh x 6,361,678 ops/sec ±1.78% (92 runs sampled)
-fast-complex#cosh x 910,624,377 ops/sec ±0.51% (96 runs sampled)
+complex.js#cosh x 5,631,226 ops/sec ±5.49% (81 runs sampled)
+fast-complex#cosh x 884,864,879 ops/sec ±0.21% (96 runs sampled)
 Fastest is fast-complex#cosh
 
 div:
-complex.js#div x 3,636,951 ops/sec ±0.84% (96 runs sampled)
-fast-complex#div x 35,337,742 ops/sec ±0.97% (94 runs sampled)
+complex.js#div x 3,544,837 ops/sec ±2.16% (92 runs sampled)
+fast-complex#div x 33,865,117 ops/sec ±0.75% (90 runs sampled)
 Fastest is fast-complex#div
 
+euler:
+complex.js#new(cos, sin) x 8,997,733 ops/sec ±6.60% (82 runs sampled)
+fast-complex#euler x 869,767,967 ops/sec ±0.86% (89 runs sampled)
+Fastest is fast-complex#euler
+
 exp:
-complex.js#exp x 6,039,567 ops/sec ±0.91% (92 runs sampled)
-fast-complex#exp x 889,482,520 ops/sec ±0.06% (94 runs sampled)
+complex.js#exp x 6,603,115 ops/sec ±2.62% (90 runs sampled)
+fast-complex#exp x 886,943,718 ops/sec ±0.14% (93 runs sampled)
 Fastest is fast-complex#exp
 
 floor:
-complex.js#floor x 8,781,547 ops/sec ±0.47% (95 runs sampled)
-fast-complex#floor x 888,314,890 ops/sec ±0.24% (98 runs sampled)
+complex.js#floor x 8,693,352 ops/sec ±1.56% (89 runs sampled)
+fast-complex#floor x 837,131,468 ops/sec ±10.72% (93 runs sampled)
 Fastest is fast-complex#floor
 
 ln:
-complex.js#log x 6,272,608 ops/sec ±0.78% (93 runs sampled)
-fast-complex#ln x 885,876,785 ops/sec ±0.23% (93 runs sampled)
+complex.js#log x 5,940,980 ops/sec ±1.11% (91 runs sampled)
+fast-complex#ln x 889,932,525 ops/sec ±0.25% (95 runs sampled)
 Fastest is fast-complex#ln
 
 log10:
-complex.js#log(10) x 6,174,428 ops/sec ±0.71% (89 runs sampled)
-fast-complex#log10 x 405,703,546 ops/sec ±34.30% (49 runs sampled)
+complex.js#log(10) x 3,534,550 ops/sec ±1.87% (91 runs sampled)
+fast-complex#log10 x 901,223,154 ops/sec ±0.29% (93 runs sampled)
 Fastest is fast-complex#log10
 
 mul:
-complex.js#mul x 4,173,618 ops/sec ±0.76% (91 runs sampled)
-fast-complex#mul x 16,153,860 ops/sec ±0.82% (95 runs sampled)
+complex.js#mul x 4,046,062 ops/sec ±3.02% (87 runs sampled)
+fast-complex#mul x 32,582,306 ops/sec ±1.38% (91 runs sampled)
 Fastest is fast-complex#mul
 
 negate:
-complex.js#negate x 8,648,611 ops/sec ±0.32% (94 runs sampled)
-fast-complex#negate x 889,886,684 ops/sec ±0.18% (94 runs sampled)
+complex.js#negate x 8,080,732 ops/sec ±3.24% (89 runs sampled)
+fast-complex#negate x 887,635,825 ops/sec ±0.21% (96 runs sampled)
 Fastest is fast-complex#negate
 
 pow:
-complex.js#pow x 3,114,318 ops/sec ±0.30% (96 runs sampled)
-fast-complex#pow x 9,008,175 ops/sec ±0.52% (94 runs sampled)
+complex.js#pow x 3,039,429 ops/sec ±0.53% (93 runs sampled)
+fast-complex#pow x 17,816,696 ops/sec ±0.86% (90 runs sampled)
 Fastest is fast-complex#pow
 
 reciprocal:
-complex.js#inverse x 8,028,073 ops/sec ±0.32% (90 runs sampled)
-fast-complex#reciprocal x 301,359,863 ops/sec ±29.73% (37 runs sampled)
+complex.js#inverse x 5,887,831 ops/sec ±6.41% (74 runs sampled)
+fast-complex#reciprocal x 862,676,299 ops/sec ±0.69% (91 runs sampled)
 Fastest is fast-complex#reciprocal
 
 sign:
-complex.js#sign x 7,446,547 ops/sec ±0.50% (92 runs sampled)
-fast-complex#sign x 886,266,554 ops/sec ±0.12% (96 runs sampled)
+complex.js#sign x 7,629,057 ops/sec ±1.15% (90 runs sampled)
+fast-complex#sign x 885,903,525 ops/sec ±0.17% (95 runs sampled)
 Fastest is fast-complex#sign
 
 sin:
-complex.js#sin x 5,579,571 ops/sec ±0.24% (95 runs sampled)
-fast-complex#sin x 889,485,146 ops/sec ±0.04% (97 runs sampled)
+complex.js#sin x 6,033,439 ops/sec ±1.14% (89 runs sampled)
+fast-complex#sin x 885,824,855 ops/sec ±0.16% (99 runs sampled)
 Fastest is fast-complex#sin
 
 sinh:
-complex.js#sinh x 5,925,036 ops/sec ±0.48% (96 runs sampled)
-fast-complex#sinh x 910,799,202 ops/sec ±0.43% (94 runs sampled)
+complex.js#sinh x 6,633,315 ops/sec ±0.66% (93 runs sampled)
+fast-complex#sinh x 908,339,848 ops/sec ±0.45% (95 runs sampled)
 Fastest is fast-complex#sinh
 
 sqrt:
-complex.js#sqrt x 7,238,014 ops/sec ±0.58% (93 runs sampled)
-fast-complex#sqrt x 238,295,802 ops/sec ±0.27% (93 runs sampled)
+complex.js#sqrt x 7,281,135 ops/sec ±0.67% (95 runs sampled)
+fast-complex#sqrt x 233,432,387 ops/sec ±1.23% (94 runs sampled)
 Fastest is fast-complex#sqrt
 
 sub:
-complex.js#sub x 3,825,745 ops/sec ±4.47% (83 runs sampled)
-fast-complex#sub x 10,662,337 ops/sec ±6.11% (61 runs sampled)
+complex.js#sub x 4,310,852 ops/sec ±1.86% (89 runs sampled)
+fast-complex#sub x 27,965,287 ops/sec ±6.10% (76 runs sampled)
 Fastest is fast-complex#sub
 
 tan:
-complex.js#tan x 4,006,442 ops/sec ±4.76% (75 runs sampled)
-fast-complex#tan x 885,185,662 ops/sec ±0.96% (94 runs sampled)
+complex.js#tan x 5,408,402 ops/sec ±1.50% (94 runs sampled)
+fast-complex#tan x 894,806,714 ops/sec ±0.41% (95 runs sampled)
 Fastest is fast-complex#tan
 
 tanh:
-complex.js#tanh x 4,193,491 ops/sec ±5.60% (75 runs sampled)
-fast-complex#tanh x 875,495,330 ops/sec ±0.35% (90 runs sampled)
+complex.js#tanh x 5,560,661 ops/sec ±0.28% (91 runs sampled)
+fast-complex#tanh x 871,009,086 ops/sec ±0.17% (98 runs sampled)
 Fastest is fast-complex#tanh
 ```
