@@ -72,6 +72,10 @@ export const ZERO = Object.freeze([0, 0]);
  */
 export const I = Object.freeze([0, 1]);
 /**
+ * The square root of -1
+ */
+export const HALF_I = Object.freeze([0, 0.5]);
+/**
  * The negative square root of -1
  */
 export const NI = Object.freeze([0, -1]);
@@ -99,6 +103,10 @@ const unsafeL2 = c => c[0] * c[0] + c[1] * c[1];
  * @ignore
  */
 const unsafeAbs = c => msqrt(unsafeL2(c));
+/**
+ * @ignore
+ */
+const unsafeArg = c => matan2(c[1], c[0]);
 /**
  * @ignore
  */
@@ -132,8 +140,8 @@ const unsafeSqrt = c => [
  * @ignore
  */
 const unsafeLn = c => [
-  mlog(msqrt(c[0] * c[0] + c[1] * c[1])),
-  matan2(c[1], c[0]),
+  mlog(unsafeAbs(c)),
+  unsafeArg(c),
 ];
 /**
  * @ignore
@@ -186,7 +194,7 @@ const unsafeAcos = c => unsafeMul(
  * @ignore
  */
 const unsafeAtan = c => unsafeMul(
-  [0, 0.5],
+  HALF_I,
   unsafeLn(
     unsafeDiv(
       [c[0], 1 + c[1]],
@@ -355,7 +363,7 @@ export const abs = c => (
  * Returns NaN if the value is not a valid complex.
  */
 export const arg = c => (
-  (isComplex(c) && matan2(c[1], c[0]))
+  (isComplex(c) && unsafeArg(c))
   || (isNumber(c) ? 0 : NaN)
 );
 
