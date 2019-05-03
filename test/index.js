@@ -7,7 +7,14 @@ import {
   acos, equals, acosh, asinh,
   asin, atan, atanh, tanh,
   tan, sinh, sin, cos,
-  cosh, ceil, floor, exp, ln, log10,
+  cosh, ceil, floor, exp,
+  ln, log10, sqrt, euler,
+  polar, sign, add, div,
+  mul,
+  pow,
+  sub,
+  reciprocal,
+  arg,
 } from '../src';
 
 describe('fast-complex', () => {
@@ -60,6 +67,47 @@ describe('fast-complex', () => {
     });
     it('should return NaN Complex if the given value is not a complex.', () => {
       assert(NAN === acosh());
+    });
+  });
+  /**
+   *
+   */
+  describe('add', () => {
+    it('should return an Array', () => {
+      assert(add([1, 1], [1, 1]) instanceof Array);
+    });
+    it('should return the sum of two complex', () => {
+      assert.deepEqual(add([1, 1], [1, 1]), [2, 2]);
+    });
+    it('should return the sum of a complex and a number', () => {
+      assert.deepEqual(add([1, 1], 1), [2, 1]);
+    });
+    it('should return the sum of a number and a complex', () => {
+      assert.deepEqual(add(1, [1, 1]), [2, 1]);
+    });
+    it('should return the sum of a number and a number', () => {
+      assert.deepEqual(add(1, 1), [2, 0]);
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === add());
+    });
+  });
+  /**
+   *
+   */
+  describe('arg', () => {
+    const eq = (a, b) => Math.abs(a - b) <= 1e7 * Math.max(1, Math.abs(a), Math.abs(b));
+    it('should return a number', () => {
+      assert(typeof arg([1, 0]) === 'number');
+    });
+    it('should return the angle of the complex', () => {
+      assert(eq(arg([1, 1]), 1.1071487177940904));
+    });
+    it('should return 0 if the given value is a number', () => {
+      assert(eq(arg(1), 0));
+    });
+    it('should return NaN if the given value is not a complex.', () => {
+      assert(isNaN(arg()));
     });
   });
   /**
@@ -201,6 +249,29 @@ describe('fast-complex', () => {
   /**
    *
    */
+  describe('div', () => {
+    it('should return an Array', () => {
+      assert(div([1, 1], [1, 1]) instanceof Array);
+    });
+    it('should return the quotient of two complex', () => {
+      assert.deepEqual(div([1, 1], [1, 1]), [1, 0]);
+    });
+    it('should return the quotient of a complex and a number', () => {
+      assert.deepEqual(div([1, 1], 1), [1, 1]);
+    });
+    it('should return the quotient of a number and a complex', () => {
+      assert.deepEqual(div(1, [1, 1]), [1, 1]);
+    });
+    it('should return the quotient of a number and a number', () => {
+      assert.deepEqual(div(1, 1), [1, 0]);
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === div());
+    });
+  });
+  /**
+   *
+   */
   describe('exp', () => {
     it('should return an Array', () => {
       assert(exp([1, 0]) instanceof Array);
@@ -213,6 +284,20 @@ describe('fast-complex', () => {
     });
     it('should return NaN Complex if the given value is not a complex.', () => {
       assert(NAN === exp());
+    });
+  });
+  /**
+   *
+   */
+  describe('euler', () => {
+    it('should return an Array', () => {
+      assert(euler(1) instanceof Array);
+    });
+    it('should return the euler of the complex', () => {
+      assert(equals(euler(1), [0.5403023058681398, 0.8414709848078965]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === euler());
     });
   });
   /**
@@ -269,6 +354,29 @@ describe('fast-complex', () => {
   /**
    *
    */
+  describe('mul', () => {
+    it('should return an Array', () => {
+      assert(mul([1, 1], [1, 1]) instanceof Array);
+    });
+    it('should return the product of two complex', () => {
+      assert.deepEqual(mul([1, 1], [1, 0]), [1, 1]);
+    });
+    it('should return the product of a complex and a number', () => {
+      assert.deepEqual(mul([1, 1], 1), [1, 1]);
+    });
+    it('should return the product of a number and a complex', () => {
+      assert.deepEqual(mul(1, [1, 1]), [1, 1]);
+    });
+    it('should return the product of a number and a number', () => {
+      assert.deepEqual(mul(1, 1), [1, 0]);
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === mul());
+    });
+  });
+  /**
+   *
+   */
   describe('negate', () => {
     it('should return an Array', () => {
       assert(negate(ONE) instanceof Array);
@@ -281,6 +389,77 @@ describe('fast-complex', () => {
     });
     it('should return a NaN complex if the given value is not a complex.', () => {
       assert(negate() === NAN);
+    });
+  });
+  /**
+   *
+   */
+  describe('polar', () => {
+    it('should return an Array', () => {
+      assert(polar(1, 1) instanceof Array);
+    });
+    it('should return the polar of the complex', () => {
+      assert(equals(polar(1, 1), [0.5403023058681398, 0.8414709848078965]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === polar());
+    });
+  });
+  /**
+   *
+   */
+  describe('pow', () => {
+    it('should return an Array', () => {
+      assert(pow([1, 1], [1, 1]) instanceof Array);
+    });
+    it('should return the power of two complex', () => {
+      assert(equals(pow([1, 1], [1, 0]), [1, 1]));
+    });
+    it('should return the power of a complex and a number', () => {
+      assert(equals(pow([1, 1], 1), [1, 1]));
+    });
+    it('should return the power of a number and a complex', () => {
+      assert(equals(pow(1, [1, 1]), [1, 0]));
+    });
+    it('should return the power of a number and a number', () => {
+      assert(equals(pow(1, 1), [1, 0]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === pow());
+    });
+  });
+  /**
+   *
+   */
+  describe('reciprocal', () => {
+    it('should return an Array', () => {
+      assert(reciprocal([1, 0]) instanceof Array);
+    });
+    it('should return the reciprocal of the complex', () => {
+      assert(equals(reciprocal([1, 1]), [0.5, -0.5]));
+    });
+    it('should return the reciprocal complex of the given number', () => {
+      assert(equals(reciprocal(1), [1, 0]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === reciprocal());
+    });
+  });
+  /**
+   *
+   */
+  describe('sign', () => {
+    it('should return an Array', () => {
+      assert(sign([1, 0]) instanceof Array);
+    });
+    it('should return the sine of the complex', () => {
+      assert(equals(sign([1, 1]), [0.7071067811865475, 0.7071067811865475]));
+    });
+    it('should return the sine complex of the given number', () => {
+      assert(equals(sign(1), [Math.sign(1), 0]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === sign());
     });
   });
   /**
@@ -315,6 +494,46 @@ describe('fast-complex', () => {
     });
     it('should return NaN Complex if the given value is not a complex.', () => {
       assert(NAN === sinh());
+    });
+  });
+  /**
+   *
+   */
+  describe('sqrt', () => {
+    it('should return an Array', () => {
+      assert(sqrt([1, 0]) instanceof Array);
+    });
+    it('should return the log10 of the complex', () => {
+      assert(equals(sqrt([1, 1]), [1.09868411346781, 0.45508986056222733]));
+    });
+    it('should return the square root complex of the given number', () => {
+      assert(equals(sqrt(1), [Math.sqrt(1), 0]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === sqrt());
+    });
+  });
+  /**
+   *
+   */
+  describe('sub', () => {
+    it('should return an Array', () => {
+      assert(sub([1, 1], [1, 1]) instanceof Array);
+    });
+    it('should return the power of two complex', () => {
+      assert(equals(sub([1, 1], [1, 1]), [0, 0]));
+    });
+    it('should return the power of a complex and a number', () => {
+      assert(equals(sub([1, 1], 1), [0, 1]));
+    });
+    it('should return the power of a number and a complex', () => {
+      assert(equals(sub(1, [1, 1]), [0, 1]));
+    });
+    it('should return the power of a number and a number', () => {
+      assert(equals(sub(1, 1), [0, 0]));
+    });
+    it('should return NaN Complex if the given value is not a complex.', () => {
+      assert(NAN === sub());
     });
   });
   /**
