@@ -345,8 +345,7 @@ export const reciprocal = c => (isComplex(c)
  */
 export const abs = c => (
   (isComplex(c) && unsafeAbs(c))
-  || (isNumber(c) && c)
-  || NaN
+  || (isNumber(c) ? c : NaN)
 );
 
 /**
